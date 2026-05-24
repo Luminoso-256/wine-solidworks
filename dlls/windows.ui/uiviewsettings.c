@@ -101,8 +101,9 @@ static HRESULT WINAPI uiviewsettings_GetTrustLevel( IUIViewSettings *iface, Trus
 
 static HRESULT WINAPI uiviewsettings_get_UserInteractionMode( IUIViewSettings *iface, enum UserInteractionMode *value )
 {
-    FIXME( "iface %p, value %p stub!\n", iface, value );
-    return E_NOTIMPL;
+   // FIXME( "iface %p, value %p stub!\n", iface, value );
+    *value = UserInteractionMode_Mouse;
+    return S_OK;
 }
 
 static const struct IUIViewSettingsVtbl uiviewsettings_vtbl =
