@@ -3886,6 +3886,12 @@ BOOL WINAPI NtUserSetWindowPos( HWND hwnd, HWND after, INT x, INT y, INT cx, INT
 {
     WINDOWPOS winpos;
 
+    //hack for solidworks sidebar text rendering
+    if (flags == 0 && after == HWND_TOPMOST){
+        TRACE("early-exit NtUserSetWindowPos");
+        return TRUE;
+    }
+
     TRACE( "hwnd %p, after %p, %d,%d (%dx%d), flags %08x\n", hwnd, after, x, y, cx, cy, flags );
     if(TRACE_ON(win)) dump_winpos_flags(flags);
 
