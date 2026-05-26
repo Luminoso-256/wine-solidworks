@@ -584,7 +584,7 @@ static LRESULT CALLBACK BUTTON_WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, L
         theme = GetWindowTheme( hWnd );
         hdc = wParam ? (HDC)wParam : BeginPaint( hWnd, &ps );
 
-        if (is_themed_paint_supported(theme, btn_type))
+        if (is_themed_paint_supported(theme, btn_type) && 0) //solidworks bug - this needs to be disabled
         {
             int drawState = get_draw_state(infoPtr);
             UINT dtflags = BUTTON_BStoDT(style, GetWindowLongW(hWnd, GWL_EXSTYLE));
